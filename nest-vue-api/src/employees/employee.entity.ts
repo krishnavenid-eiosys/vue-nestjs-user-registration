@@ -55,7 +55,7 @@ export class Employee {
     @Column({ length: 100 })
     country!: string;
 
-    @Column({ length: 20 })
+    @Column({ name: 'pinCode', length: 20 })
     pinCode!: string;
 
 
@@ -127,4 +127,95 @@ export class Employee {
     @Column({ type: 'varchar', length: 150 })
     emergencyContactRelationship!: string;
 
+}
+
+
+
+export enum EmployeeGender {
+  MALE = 'Male',
+  FEMALE = 'Female',
+  OTHER = 'Other',
+  PREFER_NOT_TO_SAY = 'Prefer not to say',
+}
+
+export enum EmploymentType {
+  FULL_TIME = 'Full-Time',
+  PART_TIME = 'Part-Time',
+  CONTRACT = 'Contract',
+  INTERN = 'Intern',
+}
+
+export enum EmploymentStatus {
+  ACTIVE = 'Active',
+  INACTIVE = 'Inactive',
+  ON_LEAVE = 'On Leave',
+  TERMINATED = 'Terminated',
+}
+
+export enum EmployeeDepartment {
+  ENGINEERING = 'Engineering',
+  HUMAN_RESOURCES = 'Human Resources',
+  FINANCE = 'Finance',
+  MARKETING = 'Marketing',
+  SALES = 'Sales',
+  OPERATIONS = 'Operations',
+}
+
+export enum EmployeeState {
+  ANDHRA_PRADESH = 'Andhra Pradesh',
+  ARUNACHAL_PRADESH = 'Arunachal Pradesh',
+  ASSAM = 'Assam',
+  BIHAR = 'Bihar',
+  CHHATTISGARH = 'Chhattisgarh',
+  GOA = 'Goa',
+  GUJARAT = 'Gujarat',
+  HARYANA = 'Haryana',
+  HIMACHAL_PRADESH = 'Himachal Pradesh',
+  JHARKHAND = 'Jharkhand',
+  KARNATAKA = 'Karnataka',
+  KERALA = 'Kerala',
+  MADHYA_PRADESH = 'Madhya Pradesh',
+  MAHARASHTRA = 'Maharashtra',
+  MANIPUR = 'Manipur',
+  MEGHALAYA = 'Meghalaya',
+  MIZORAM = 'Mizoram',
+  NAGALAND = 'Nagaland',
+  ODISHA = 'Odisha',
+  PUNJAB = 'Punjab',
+  RAJASTHAN = 'Rajasthan',
+  SIKKIM = 'Sikkim',
+  TAMIL_NADU = 'Tamil Nadu',
+  TELANGANA = 'Telangana',
+  TRIPURA = 'Tripura',
+  UTTAR_PRADESH = 'Uttar Pradesh',
+  UTTARAKHAND = 'Uttarakhand',
+  WEST_BENGAL = 'West Bengal',
+}
+
+export enum EmployeeCountry {
+  INDIA = 'India',
+  UNITED_STATES = 'United States',
+  UNITED_KINGDOM = 'United Kingdom',
+  CANADA = 'Canada',
+  AUSTRALIA = 'Australia',
+  GERMANY = 'Germany',
+  FRANCE = 'France',
+  JAPAN = 'Japan',
+  CHINA = 'China',
+  BRAZIL = 'Brazil',
+  SOUTH_AFRICA = 'South Africa',
+  RUSSIA = 'Russia',
+  ITALY = 'Italy',
+  SPAIN = 'Spain',
+  MEXICO = 'Mexico',
+  OTHER = 'Other',
+}
+
+export enum EmployeeDesignation {
+  SOFTWARE_DEVELOPER = 'Software Developer',
+  SENIOR_SOFTWARE_DEVELOPER = 'Senior Software Developer',
+  TEAM_LEAD = 'Team Lead',
+  PROJECT_MANAGER = 'Project Manager',
+  HR_EXECUTIVE = 'HR Executive',
+  ACCOUNTANT = 'Accountant',
 }

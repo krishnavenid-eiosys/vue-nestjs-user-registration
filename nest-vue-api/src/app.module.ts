@@ -6,13 +6,21 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EmployeesModule } from './employees/employees.module';
+import  { ScheduleModule } from '@nestjs/schedule';
 
+import { OtpModule } from './otp/otp.module';
 
+// NestJS module that enables caching
+import { CacheModule } from '@nestjs/cache-manager';
+
+// Connects the cache to Redis
+import { createKeyv } from '@keyv/redis';
 @Module({
-  imports: [UsersModule, 
-    AuthModule, 
-    ConfigModule.
-    forRoot(),
+  imports: [
+    ScheduleModule.forRoot(),
+    UsersModule,
+    AuthModule,
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -23,9 +31,18 @@ import { EmployeesModule } from './employees/employees.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
+    // Configure Redis as the cache sto rage
+    CacheModule.registerAsync({
+      isGlobal: true, // Other modules can use the cache
+      useFactory: async () => ({
+        stores: [createKeyv('redis://localhost:6379')],
+      }),
+    }),
     EmployeesModule,
+    OtpModule,
+    
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}import { NestApplication } from '@nestjs/core';
+export class AppModule {}

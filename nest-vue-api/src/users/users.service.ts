@@ -4,14 +4,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UserTable } from './entities/user.entity';
 
-// export type User = {
-//     id: number;
-//     name: string;
-//     email: string;
-//     password: string;
-//     age: number;
-// };
-
 @Injectable()
 export class UsersService {
     // Users Entity Repository is injected into the service.

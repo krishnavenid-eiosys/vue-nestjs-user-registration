@@ -1,4 +1,3 @@
-
 import {
   ExceptionFilter,
   Catch,
@@ -14,6 +13,8 @@ import { Request, Response } from 'express';
 export class HttpExceptionFilter implements ExceptionFilter {
   catch(exception: unknown, host: ArgumentsHost) {
     // Gives us access to the HTTP request and response.
+      console.error('FULL BACKEND ERROR:', exception);
+
     const httpContext = host.switchToHttp();
 
     const request = httpContext.getRequest<Request>();
